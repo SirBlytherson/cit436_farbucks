@@ -10,27 +10,49 @@
 
   <body>
   
-<nav class="navbar navbar-toggleable-md navbar-dark bg-primary">
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <%= link_to("Farbucks", page_path("home"), :class => "navbar-brand") %>
-  <div class="collapse navbar-collapse" id="navbarText">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-		<%= link_to("Home", page_path("home"), :class => "nav-link") %>
-      </li>
-      <li class="nav-item">
-		<%= link_to("Menu", menu_categories_path, :class => "nav-link") %>
-      </li>
-    </ul>
-  </div>
-</nav>
+	<nav class="navbar navbar-toggleable-md navbar-dark bg-primary">
+	  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	  </button>
+	  <%= link_to("Farbucks", page_path("home"), :class => "navbar-brand") %>
+	  <div class="collapse navbar-collapse" id="navbarText">
+		<ul class="navbar-nav mr-auto">
+		  <li class="nav-item active">
+			<%= link_to("Home", page_path("home"), :class => "nav-link") %>
+		  </li>
+		  <li class="nav-item">
+			<%= link_to("Menu", menu_categories_path, :class => "nav-link") %>
+		  </li>
+		</ul>
+	  </div>
+	</nav>
 
-
+	<script>
+		$(document).ready(function() {
+			var navsObj = $('nav li');
+			var navs = $.map(navsObj, function(value, index) {
+				return value;
+			});
+			var hrefs = [];
+			var found = 0;
+			navs.forEach(function(nav, index) {
+				var kid = $(nav).children().filter('a');
+				$(nav).removeClass('active');
+				if(window.location.href.includes(kid.attr('href'))) {
+					$(nav).addClass('active');
+					found = 1;
+				}
+				
+			});
+			if(found == 0) {
+			  navs.forEach(function(nav, index) {
+			    if(index == 0) {
+				  $(nav).addClass('active');
+				}
+			  });
+			}
+		});
+	</script>
 
 	<%= yield %>
   </body>
