@@ -1,3 +1,3 @@
 class Status < ApplicationRecord
-  belongs_to :menu_item
+ has_many :orders
 end
