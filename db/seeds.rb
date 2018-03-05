@@ -1,5 +1,4 @@
-
-cation.create!([
+Location.create!([
   {name: "Carpenter Rd.", store_number: "13531-106377", address: "3650 Carpenter Rd.", city: "Pittsfield", state: "MI", zipcode: "48104", latitude: "42.2371635437011", longitude: "-83.6808700561523"},
   {name: "1515 N. Sheridan - Wilmette", store_number: "224-119704", address: "1515 North Sheridan", city: "Wilmette", state: "IL", zipcode: "600911822", latitude: "42.086498260498", longitude: "-87.7003326416015"},
   {name: "S McCarran & E Greg St - Sparks", store_number: "10913-101634", address: "1560 S. Stanford Way", city: "Sparks", state: "NV", zipcode: "894316331", latitude: "39.5206565856933", longitude: "-119.74072265625"},
@@ -210,7 +209,19 @@ ItemDetail.create!([
   {size: "Grande", price: "4.95", menu_item_id: 12},
   {size: "Venti", price: "5.25", menu_item_id: 12},
   {size: "Tall", price: "4.25", menu_item_id: 13},
-  {size: "Grande", price: "4.95", nu_item_id: 16},
+  {size: "Grande", price: "4.95", menu_item_id: 13},
+  {size: "Venti", price: "5.25", menu_item_id: 13},
+  {size: "Tall", price: "4.25", menu_item_id: 14},
+  {size: "Grande", price: "4.95", menu_item_id: 14},
+  {size: "Venti", price: "5.25", menu_item_id: 14},
+  {size: "Tall", price: "2.25", menu_item_id: 15},
+  {size: "Grande", price: "2.65", menu_item_id: 15},
+  {size: "Venti", price: "2.95", menu_item_id: 15},
+  {size: "Trenta", price: "3.45", menu_item_id: 15},
+  {size: "Mini", price: "3.75", menu_item_id: 16},
+  {size: "Tall", price: "3.95", menu_item_id: 16},
+  {size: "Grande", price: "4.45", menu_item_id: 16},
+  {size: "Venti", price: "4.95", menu_item_id: 16},
   {size: "Mini", price: "3.75", menu_item_id: 17},
   {size: "Tall", price: "3.95", menu_item_id: 17},
   {size: "Grande", price: "4.45", menu_item_id: 17},
@@ -282,9 +293,17 @@ ItemDetail.create!([
   {size: "Single", price: "5.95", menu_item_id: 57},
   {size: "Single", price: "5.95", menu_item_id: 58},
   {size: "Single", price: "5.55", menu_item_id: 59},
-  {size: "Single", price: "6.45",menu_item_id: 60},
+  {size: "Single", price: "6.45", menu_item_id: 60},
   {size: "Single", price: "5.25", menu_item_id: 61},
   {size: "Single", price: "5.95", menu_item_id: 62},
   {size: "Single", price: "5.95", menu_item_id: 63},
   {size: "Single", price: "1.95", menu_item_id: 64},
-  {size: "2 Pc.", price: "3.5", menu_item
+  {size: "2 Pc.", price: "3.5", menu_item_id: 64}
+])
+Status.create!([
+  {name: "Open"},
+  {name: "Paid"},
+  {name: "Cancelled"}
+])
+
+
