@@ -5,5 +5,11 @@
   <%= @menu_category.name %>
 </p>
 
+<ul>
+<% @menu_category.menu_items.all.each do |i| %>
+	<li><%= i.name %></li>
+<% end %>
+</ul>
+
 <%= link_to 'Edit', edit_menu_category_path(@menu_category) %> |
 <%= link_to 'Back', menu_categories_path %>
