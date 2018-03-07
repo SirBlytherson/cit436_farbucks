@@ -10,5 +10,23 @@
   <%= @menu_item.menu_image %>
 </p>
 
+<table>
+<thead>
+	<tr>
+		<th>Size</th>
+		<th>Price</th>
+	</tr>
+</thead>
+
+<tbody>
+<% @menu_item.item_details.all.each do |i| %>
+	<tr>
+		<td><%= i.size %></td>
+		<td><%= i.price %></td>
+	</tr>
+<% end %>
+</tbody>
+</table>
+
 <%= link_to 'Edit', edit_menu_item_path(@menu_item) %> |
 <%= link_to 'Back', menu_items_path %>
