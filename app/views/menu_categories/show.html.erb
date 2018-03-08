@@ -5,27 +5,11 @@
   <%= @menu_category.name %>
 </p>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Menu image</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @menu_category.menu_items.all.each do |menu_item| %>
-      <tr>
-        <td><%= menu_item.name %></td>
-        <td><img src="https://storage.googleapis.com/farbucks_menu_images/<%= menu_item.menu_image %>.jpg" class="img-responsive" width="30" height="30"></td>
-        <td><%= link_to 'Show', menu_item %></td>
-        <td><%= link_to 'Edit', edit_menu_item_path(menu_item) %></td>
-        <td><%= link_to 'Destroy', menu_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+-<ul>
+-<% @menu_category.menu_items.all.each do |i| %>
+-	<li><%= i.name %></li>
+-<% end %>
+-</ul>
 
 <%= link_to 'Edit', edit_menu_category_path(@menu_category) %> |
 <%= link_to 'Back', menu_categories_path %>
