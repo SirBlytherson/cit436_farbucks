@@ -15,7 +15,7 @@
     <% @menu_items.each do |menu_item| %>
       <tr>
         <td><%= menu_item.name %></td>
-        <td><img src="https://storage.googleapis.com/farbucks_menu_images/<%= menu_item.menu_image %>.jpg" class="img-responsive"></td>
+        <td><img src="https://storage.googleapis.com/farbucks_menu_images/<%= menu_item.menu_image %>.jpg" class="img-responsive" width="30" height="30"></td>
         <td><%= link_to 'Show', menu_item %></td>
         <td><%= link_to 'Edit', edit_menu_item_path(menu_item) %></td>
         <td><%= link_to 'Destroy', menu_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
