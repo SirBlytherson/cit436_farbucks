@@ -15,7 +15,7 @@
   </thead>
 
   <tbody>
-    <% @menu_categories.menu_items.all.each do |menu_item| %>
+    <% @menu_category.menu_items.all.each do |menu_item| %>
       <tr>
         <td><%= menu_item.name %></td>
         <td><img src="https://storage.googleapis.com/farbucks_menu_images/<%= menu_item.menu_image %>.jpg" class="img-responsive" width="30" height="30"></td>
