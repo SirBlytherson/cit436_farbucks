@@ -27,9 +27,7 @@ class OrderItemsController < ApplicationController
     # @order_item = OrderItem.new(order_item_params)
 
     @order = current_order
-	puts "Blythe"
-	puts params
-    @order_item = @order.order_items.new(params[:order_item])
+    @order_item = @order.order_items.new(order_item_params)
     @order_item.quantity = 1
     @order.save
     session[:order_id] = @order.id

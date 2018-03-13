@@ -5,6 +5,16 @@ class Order < ApplicationRecord
 
   before_validation :set_order_status_location, on: :create
 
+  def subtotal
+    sub = 0
+    
+    self.order_items.each do |oi|
+      sub += (oi.quantity * oi.price)
+    end
+
+    return sub
+  end
+
   private 
   def set_order_status_location
     self.status_id = 1
