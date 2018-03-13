@@ -20,8 +20,7 @@
 <tbody>
 <% @menu_item.item_details.all.each do |i| %>
 	<tr>
-		<td><%= i.size %></td>
-		<td><%= i.price %></td>
+		<%= render "item_detail_row", item_detail: i, order_item: current_order.order_items.new %>
 	</tr>
 <% end %>
 </tbody>
