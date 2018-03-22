@@ -9,7 +9,7 @@ class Order < ApplicationRecord
     sub = 0
     
     self.order_items.each do |oi|
-      sub += (oi.quantity * oi.price)
+      sub += (oi.quantity * oi.item_detail.price)
     end
 
     return sub

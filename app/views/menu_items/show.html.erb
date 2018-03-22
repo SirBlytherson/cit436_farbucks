@@ -12,7 +12,7 @@
 <ul>
 	<% @menu_item.item_details.each do |d| %>
 	<li>
-		<%= render "item_detail_row", item_detail: d, order_item: current_order.order_items.new %>
+		<%= render "item_detail_row", item_detail: d, order_items: current_order.order_items.new %>
 	</li>
 	<% end %>
 </ul>
