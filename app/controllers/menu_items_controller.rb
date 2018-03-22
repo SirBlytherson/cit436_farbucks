@@ -71,4 +71,8 @@ class MenuItemsController < ApplicationController
     def menu_item_params
       params.require(:menu_item).permit(:name, :menu_image)
     end
+	
+	def order_item_params
+		params.require(:order_item).permit(:quantity,:item_detail_id)
+	end
 end
