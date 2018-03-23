@@ -38,7 +38,7 @@ class OrderItemsController < ApplicationController
         format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new }
-        format.json { render json: @order_item.errors, status: :unprocessable_entity }
+        format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -75,6 +75,7 @@ class OrderItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_item_params
-      params.require(:order_item).permit(:quantity)
+      params.require(:order_item).permit(:quantity,:item_detail_id)
     end
+
 end
