@@ -1,5 +1,7 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+  ActiveMerchant::Billing::Base.mode = :test                                                                                                                                                                ::GATEWAY = ActiveMerchant::Billing::AuthorizeNetGateway.new({                                         :login => '5f8Ygta6D4UP',                                                                            :password => '9X6tq5dS5y4uE3mx'                                                                    }) 
+
 
   # The test environment is used exclusively to run your application's
   # test suite. You never need to work with it otherwise. Remember that
