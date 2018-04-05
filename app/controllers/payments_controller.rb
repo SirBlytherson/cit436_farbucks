@@ -15,6 +15,7 @@ class PaymentsController < ApplicationController
   # GET /payments/new
   def new
     @payment = Payment.new
+    @order = Order.find(params[:order_id])
   end
 
   # GET /payments/1/edit
@@ -25,11 +26,27 @@ class PaymentsController < ApplicationController
   # POST /payments.json
   def create
     @payment = Payment.new(payment_params)
+    @payment.order = Order.find(payment_params[:order_id])
 
     respond_to do |format|
       if @payment.save
-        format.html { redirect_to @payment, notice: 'Payment was successfully created.' }
-        format.json { render :show, status: :created, location: @payment }
+
+        if @payment.make_transaction
+
+          @payment.order.status = Status.find(2)
+          @payment.order.save
+
+          reset_session
+
+          format.html { redirect_to @payment.order, notice: 'Payment was successfully created.' }
+          format.json { render :show, status: :created, location: @payment.order }
+        else
+          @order = @payment.order
+          @payment.destroy
+          
+          format.html { redirect_to @order, notice: 'Payment failed!' }
+          format.json { render :show, status: :created, location: @order }
+        end
       else
         format.html { render :new }
         format.json { render json: @payment.errors, status: :unprocessable_entity }
@@ -69,6 +86,6 @@ class PaymentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def payment_params
-      params.require(:payment).permit(:amount, :transaction_id, :response)
+      params.require(:payment).permit(:amount, :order_id, :first_name, :last_name, :card_number, :card_expires_on)
     end
 end

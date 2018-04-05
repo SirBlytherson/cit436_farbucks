@@ -18,8 +18,12 @@
 </table>
 <% end %>
 
-<p>Order Subtotal: <%= number_to_currency(order.subtotal) %></p>
+<p>Order Subtotal: <%= number_to_currency(@order.subtotal) %></p>
 
+<% if @order.status_id != 2 %>
 <p>
   <%= link_to 'Checkout', checkout_path(@order.id), :class => "btn btn-primary" %>
 </p>
+<% else %>
+<i>This order has been completed.</i> <%= @order.payment.transaction_id %>
+<% end %>
